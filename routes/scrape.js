@@ -32,11 +32,13 @@ module.exports = function (app) {
                 if (result.title && result.link) {
                     var entry = new Article(result);
                     // Now, save that entry to the db
-                    Article.update(
-                        {link: result.link},
-                        result,
-                        { upsert: true },
-                        function (error, doc){
+                    Article.update({
+                            link: result.link
+                        },
+                        result, {
+                            upsert: true
+                        },
+                        function (error, doc) {
                             if (error) {
                                 console.log(error);
                             }
@@ -44,7 +46,9 @@ module.exports = function (app) {
                     );
                 }
             });
-            res.json({"code" : "success"});
+            res.json({
+                "code": "success"
+            });
             // res.json(true);
         });
     });
@@ -81,7 +85,9 @@ module.exports = function (app) {
             .exec(function (error, data) {
                 if (error) {
                     console.log(error);
-                    res.json({"code" : "error"});
+                    res.json({
+                        "code": "error"
+                    });
                 } else {
                     res.json(data);
                 }
@@ -133,17 +139,17 @@ module.exports = function (app) {
     });
 
     app.get("/notes/:id", function (req, res) {
-        if(req.params.id) {
+        if (req.params.id) {
             Note.find({
-                "article_id": req.params.id
-            })
-            .exec(function (error, doc) {
-                if (error) {
-                    console.log(error)
-                } else {
-                    res.send(doc);
-                }
-            });
+                    "article_id": req.params.id
+                })
+                .exec(function (error, doc) {
+                    if (error) {
+                        console.log(error)
+                    } else {
+                        res.send(doc);
+                    }
+                });
         }
     });
 

@@ -45,7 +45,7 @@ function displaySaved() {
             deleteArticle.addClass("waves-effect waves-light white btn delete-button");
             deleteArticle.attr("id", data[i]._id);
             deleteArticle.text("Delete");
-            
+
             var byline = $("<p>");
             byline.text(data[i].byline);
             cardActionDiv.append(byline);
@@ -134,7 +134,7 @@ $(document).ready(function () {
         $("#display-title").text(title);
         $("#textarea1").val("");
         $.getJSON("/notes/" + aid, function (data) {
-            if(data.length) {
+            if (data.length) {
                 console.log(data);
                 let notetext = "Notes: " + data[0].body;
                 $("#display-note").empty();
@@ -144,7 +144,7 @@ $(document).ready(function () {
                 hli.addClass("collection-header")
                 hli.text("Notes");
                 noteList.append(hli);
-            
+
                 for (let i = 0; i < data.length; i++) {
                     let ili = $("<li>");
                     ili.attr("id", data[i]._id);

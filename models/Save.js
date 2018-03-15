@@ -18,8 +18,8 @@ var SaveSchema = new Schema({
   summary: {
     type: String,
   },
-   byline: {
-   type: String,
+  byline: {
+    type: String,
   },
   // This only saves one note's ObjectId, ref refers to the Note model
   note: {

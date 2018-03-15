@@ -48,12 +48,12 @@ function displayScrape() {
                     cardActionDiv.append(saveArticle);
                     mainDiv.append(cardContentDiv);
                     mainDiv.append(cardActionDiv);
-                    
+
                     $("#nyt-" + String(i % 3)).append(mainDiv);
                 }
             });
         }
-   });
+    });
 }
 
 $(document).ready(function () {
